@@ -37,9 +37,9 @@ app.get('/api/todos', async (req, res) => {
 });
 
 app.post('/api/todos', async (req, res) => {
-  const { text } = req.body;
+  const { task } = req.body;
   console.log(req.body);
-  const result = await pool.query('INSERT INTO todos (text, completed) VALUES ($1, $2) RETURNING *', [text, false]);
+  const result = await pool.query('INSERT INTO todos (task, completed) VALUES ($1, $2) RETURNING *', [task, false]);
   res.json(result.rows[0]);
 });
 
