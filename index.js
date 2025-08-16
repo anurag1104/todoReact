@@ -7,7 +7,13 @@ dotenv.config()
 const {Pool} = pg;
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',               // Dev
+    'https://68a060b01d899959261ef2cf--astonishing-crostata-87f0d8.netlify.app/'    // Prod
+  ],
+  methods: ['GET','POST','PUT','DELETE']
+}));
 app.use(express.json());
 
 // Connect to PostgreSQL
