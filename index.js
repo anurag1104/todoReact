@@ -22,7 +22,15 @@ const pool = new Pool({
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
+
+
 // Routes
+
+
+app.get("/", (req, res) => {
+  res.send("Backend is live ✅");
+});
+
 app.get('/api/todos', async (req, res) => {
   const result = await pool.query('SELECT * FROM todos ORDER BY id ASC');
   res.json(result.rows);
