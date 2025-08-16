@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',               // Dev
-    'https://68a060b01d899959261ef2cf--astonishing-crostata-87f0d8.netlify.app/'    // Prod
+    'https://astonishing-crostata-87f0d8.netlify.app/'    // Prod
   ],
   methods: ['GET','POST','PUT','DELETE']
 }));
